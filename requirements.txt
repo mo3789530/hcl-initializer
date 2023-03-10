@@ -1,0 +1,3 @@
+pyhcl
+fastapi
+uvicorn

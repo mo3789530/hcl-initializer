@@ -1,4 +1,4 @@
-from src.hcl.hcl import HclParser
+from src.myhcl.hcl import HclParser
 from src.utils.file import File
 
 

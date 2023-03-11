@@ -1,4 +1,4 @@
-ecs {
+ecs = {
     service = {}
     batch = {}
 }

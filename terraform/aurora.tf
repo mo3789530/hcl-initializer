@@ -1,3 +1,3 @@
-aurora {
+aurora = {
     aurora_test = {}
 }

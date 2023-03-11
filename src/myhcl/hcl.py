@@ -18,7 +18,7 @@ class HclParser:
         if self.__check_locals(origin) == False:
             raise Exception("Formt error")
         for m in mergr_data:
-            origin['locals'].update(m)
+            origin['locals']["pack"].update(m)
         return origin
 
     def __check_locals(self, origin: dict) -> bool:

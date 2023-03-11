@@ -20,11 +20,33 @@ def main():
 
     lib = CDLL("./json2hcl/main.so")
     json2hcl = lib.json2hcl
+    hcl2json = lib.hcl2json
+    hcl2json.restype = c_char_p
     json2hcl.restype = c_char_p
 
     print(type(common))
 
-    print(json2hcl(bytes(json.dumps(common), "utf-8")).decode("utf-8"))
+    data = hcl2json(b"""
+        "locals" = {
+            "env" = {
+                "region" = "ap-northeast-1"
+            }
+
+            "ext" = {}
+
+            "pack" = {
+                "aurora" = {
+                    "aaa" = "bbb"
+                }
+            }
+        }
+    """, "utf-8").decode("utf-8")
+
+    print(json.loads(data))
+    test = json.dumps(json.loads(data))
+
+    print(json2hcl(bytes(test, "utf-8")).decode("utf-8"))
+    print("aaaaaaaa")
 
 
 if __name__ == "__main__":

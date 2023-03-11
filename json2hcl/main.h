@@ -75,6 +75,7 @@ extern "C" {
 #endif
 
 extern char* json2hcl(char* json);
+extern char* hcl2json(char* hcl);
 
 #ifdef __cplusplus
 }

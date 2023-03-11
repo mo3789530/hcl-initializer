@@ -1,0 +1,4 @@
+ecs {
+    service = {}
+    batch = {}
+}

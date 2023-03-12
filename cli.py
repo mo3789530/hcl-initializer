@@ -1,5 +1,10 @@
 from src.utils.file import File
 from src.myhcl.hcl import HclParser
+import json
+import re
+from logging import config, getLogger
+
+logger = getLogger(__name__)
 
 
 def main():
@@ -18,7 +23,7 @@ def main():
 
     myhcl.merge(common, [aurora])
 
-    print(myhcl.dumps(common))
+    # print(myhcl.dumps(common))
 
     print("aaaa")
     print(myhcl.pretty(myhcl.dumps(common)))
@@ -27,3 +32,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    with open("./log_config.json", 'r') as f:
+        log_conf = json.load(f)
+    config.dictConfig(log_conf)

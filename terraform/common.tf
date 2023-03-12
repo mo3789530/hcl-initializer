@@ -1,4 +1,4 @@
-locals  {
+locals {
   env = {
     region = "ap-northeast-1"
   }

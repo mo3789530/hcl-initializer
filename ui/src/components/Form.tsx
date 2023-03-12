@@ -4,14 +4,14 @@ import * as React from "react";
 const Form = () => {
   return (
     <div>
-      <Table  style={{ width: '30%', height: '30%' }} >
+      <Table style={{ width: '30%', height: '30%' }} >
         <h3>Project Info</h3>
         <tr>
           <th>
             <label>Name: </label>
           </th>
           <th>
-            <TextField id="project-name" label="Name" variant="standard" />
+            <TextField id="project-name" label="Name" variant="standard" inputProps={{ maxLength: 6 }} />
           </th>
         </tr>
         <tr>

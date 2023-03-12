@@ -36,9 +36,25 @@ class HclParser:
     # json2hcl
     def dumps(self, json_data: dict) -> str:
         json_data = json.dumps(json_data)
-        return self._json2hcl(bytes(json_data, "utf-8")).decode("utf-8")
+        hcl_data = self.pretty(hcl=json)
+        return self._json2hcl(bytes(hcl_data, "utf-8")).decode("utf-8")
 
     def __check_locals(self, origin: dict) -> bool:
         if origin.get('locals', None) == None:
             return False
         return True
+
+    # remove ["] in hcl str because terraform cannot recognition block if included " in block
+    def pretty(self, hcl: str) -> str:
+        pretty = []
+        for l in hcl.split("\n"):
+            # print(l)
+            if '"locals" = {' in l:
+                pretty.append("locals { \n")
+                continue
+            if "= {" in l:
+                print(l)
+                l = l.replace('"', '')
+            pretty.append(l + "\n")
+
+        return "".join(pretty)

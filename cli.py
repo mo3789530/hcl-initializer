@@ -19,7 +19,10 @@ def main():
     myhcl.merge(common, [aurora])
 
     print(myhcl.dumps(common))
-    file.write_hcl(data=myhcl.dumps(common))
+
+    print("aaaa")
+    print(myhcl.pretty(myhcl.dumps(common)))
+    file.write_hcl(data=myhcl.pretty(myhcl.dumps(common)))
 
 
 if __name__ == "__main__":

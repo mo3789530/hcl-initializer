@@ -14,12 +14,33 @@ function App() {
   const [env, setEnv] = React.useState("");
   const [selcted, setSelected] = React.useState([]);
   const [showOptions, setShowOptions] = React.useState(false);
+
+  const handleToggle = (index: number) => () => {
+    // eslint-disable-next-line array-callback-return
+    const newOptions = options.map((v: any) => {
+      if (v.index === index) {
+        v.checked = !v.checked;
+      }
+      return v;
+    });
+    setOptions(newOptions as any);
+  };
+
+
   React.useEffect(() => {
     async function fetchOptions() {
       const local = "http://localhost:8000";
       const response = await axios.get(local + "/api/hcl/options");
-      setOptions(response.data.options)
-      console.log(response.data.options);
+      console.log("aaaa")
+      console.log(response.data.options)
+      const list = response.data.options.map((value: string, index: number) => {
+        return {
+          label: value,
+          index: index,
+          checked: false
+        }
+      })
+      setOptions(list)
       return response;
     }
 
@@ -36,7 +57,7 @@ function App() {
       <Form></Form>
       <Button variant='contained' onClick={optionsBtnOpen}>Options</Button>
       <div style={{ visibility: showOptions ? 'visible' : 'hidden' }}>
-        <Options options={options} ></Options>
+        <Options options={options} handleToggle={handleToggle} ></Options>
       </div>
 
     </div >

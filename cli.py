@@ -4,6 +4,8 @@ import json
 import re
 from logging import config, getLogger
 
+from src.template.env import Env
+
 logger = getLogger(__name__)
 
 
@@ -28,6 +30,9 @@ def main():
     print("aaaa")
     print(myhcl.pretty(myhcl.dumps(common)))
     file.write_hcl(data=myhcl.pretty(myhcl.dumps(common)))
+
+    env = Env()
+    print(env.create_hcl(dic={'region': 'test'}))
 
 
 if __name__ == "__main__":

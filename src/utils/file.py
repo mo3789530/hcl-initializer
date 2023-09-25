@@ -3,7 +3,7 @@ from logging import getLogger
 logger = getLogger("src").getChild(__name__)
 
 
-class File():
+class File:
     def __init__(self, path) -> None:
         self.path = path
 
@@ -14,7 +14,7 @@ class File():
             f.close()
             return data
 
-    def write_hcl(self, filepath="./test.tf", data=""):
+    def write_hcl(self, filepath: object = "./test.tf", data: object = "") -> object:
         with open(file="./test.tf", mode='w') as f:
             f.write(data)
             f.close()

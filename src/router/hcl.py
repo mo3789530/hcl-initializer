@@ -11,7 +11,7 @@ router = APIRouter(tags=["hcl"], prefix="/hcl")
 # @router.post("/generate", response_class=FileResponse)
 @router.post("/generate")
 async def hcl(option: Option):
-    hclService = HclService(path="terraform", services=option.service)
+    hclService: HclService = HclService(path="terraform", services=option.service)
     return hclService.genarate()
 
 

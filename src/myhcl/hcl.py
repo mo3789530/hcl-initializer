@@ -22,7 +22,7 @@ class HclParser:
         return origin.get(target, {})
 
     def merge(self, origin: dict, mergr_data: list) -> dict:
-        if self.__check_locals(origin) == False:
+        if not self.__check_locals(origin):
             raise Exception("Formt error")
         for m in mergr_data:
             origin['locals'][0]["pack"][-1].update(m)
@@ -40,7 +40,7 @@ class HclParser:
         return self.pretty(hcl=hcl_data)
 
     def __check_locals(self, origin: dict) -> bool:
-        if origin.get('locals', None) == None:
+        if origin.get('locals', None) is None:
             return False
         return True
 

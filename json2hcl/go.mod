@@ -9,6 +9,7 @@ require (
 	github.com/hashicorp/terraform-exec v0.19.0
 	github.com/tmccombs/hcl2json v0.6.0
 	github.com/zclconf/go-cty v1.14.0
+	golang.org/x/exp v0.0.0-20231006140011-7918f672742d
 )
 
 require (
@@ -21,7 +22,7 @@ require (
 	github.com/hashicorp/terraform-json v0.17.1
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
-	golang.org/x/mod v0.12.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
+	golang.org/x/mod v0.13.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
 )
